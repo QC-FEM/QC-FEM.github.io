@@ -38,6 +38,6 @@ Having trouble with Pages? Check out our [documentation](https://docs.github.com
 
 ### Redirección a paginas tentativas
 
-* [AboutUs.md](http://qc-fem.github.io/info)
-* [lesson1.md](http://qc-fem.github.io/CrashCourse/leccion1)
-* [lesson2.md](http://qc-fem.github.io/CrashCourse/leccion2)
+* [AboutUs.md](AboutUs.md)
+* [lesson1.md](CrashCourse/lesson1.md)
+* [lesson2.md](CrashCourse/lesson2.md)
