@@ -27,6 +27,14 @@ url: "http://qc-fem.github.io" # the base hostname & protocol for your site, e.g
 twitter_username: QC-FEM
 github_username:  QC-FEM
 
+# More fields for minima to custom website
+# Default author for posts will be QC-FEM
+author: QC-FEM
+
+# Non-minima filds (not shipped with Jekyll)
+# Add a copyright symbol
+copyright: "QC-FEM"
+
 # Build settings
 # Removed minima theme since it is desirable to use a regular theme
 # theme: minima
