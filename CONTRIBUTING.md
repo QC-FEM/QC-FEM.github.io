@@ -15,6 +15,7 @@ The repo is divided onto the following categories:
 1. Content Files.
 1. Building Files.
 1. Image files.
+1. Community files.
 
 ## Config File
 
@@ -43,6 +44,8 @@ The website is expected to consist of at least 4 pages:
 
 All pages, except *Home Page*, must be stored inside ```pages``` folder. You may not create pages carelessly, for they are linked at the main menu of the website. Always think if it corresponds to either a Crash Course publication or a Project publication before creating a new page. At this early stage, the current contributors do not know how to create subpages or nested menus with Jekyll. Therefore, try to fit publications onto Crash Course, Project or About pages.
 
+**NOTE:** There is a ```404.html``` file that contains the default page when the server is unable to find the content on the repo. This can be personalized, but is scarcely necessary.
+
 ### Posts
 
 This are simple blog posts. They are to be stored on the folder ```_posts```. The main rule for posting is to include the date YY-MM-DD in the name of the file, since this is a requirement of Jekyll. Any post must be categorized as Crash Course or Project, and identified as such.
@@ -50,6 +53,20 @@ This are simple blog posts. They are to be stored on the folder ```_posts```. Th
 ## Building Files
 
 These are html files on ```_site``` folder. They **should not be modified**. These files are generated automatically by Jekyll, and thus their integrity is crucial for the site working correctly. All images are expected to be stored in a common folder ```images``` at the root. They should be given a descriptive name. The only accepted format of images is PNG.
+
+## Community files
+
+These are guidelines for contribution, use of content and description of the repo. The files:
+
+* ```CODE_OF_CONDUCT.md```
+* ```LICENSE```
+
+Should be read carefully, but no modified. The files
+
+* ```README.md```
+* ```CONTRIBUTING```
+
+May be modified according to the evolution of the website.
 
 ---
 
