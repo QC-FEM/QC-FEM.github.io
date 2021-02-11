@@ -3,7 +3,21 @@
   <div class="wrapper">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
+
+    <!---
+    Original title given by default on minima theme from Jekyll
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    --->
+
+    <!-- Custom title with logo--->
+    <a class="site-title" rel="author" href="{{ '/' | relative_url}}">
+      {%- if site.title-logo -%}
+        <img src="{{site.title-logo | relative_url}}" alt="{{site.title | escape}}" width="212" height="53"></img>
+        {%- else -%}
+          {{site.title | escape}}
+      {%- endif -%}
+    </a>
+    <!-- end of custom code --->
 
     {%- if page_paths -%}
       <nav class="site-nav">
