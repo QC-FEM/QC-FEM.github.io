@@ -28,7 +28,8 @@ twitter_username: QC-FEM
 github_username:  QC-FEM
 
 # Build settings
-theme: minima
+# Removed minima theme since it is desirable to use a regular theme
+# theme: minima
 plugins:
   - jekyll-feed
 

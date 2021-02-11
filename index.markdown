@@ -4,5 +4,3 @@
 
 layout: home
 ---
-
-Sitio Web oficial de QC-FEM
