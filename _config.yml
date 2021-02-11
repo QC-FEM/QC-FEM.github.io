@@ -24,8 +24,9 @@ description: >- # this means to ignore newlines until "baseurl:"
   Grupo de estudiantes para estudiantes! Encuentra toda la información sobre nosotros aquí.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://qc-fem.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: QC-FEM
 github_username:  QC-FEM
+instagram_username: QC-FEM
+youtube_username: QC-FEM
 
 # More fields for minima to custom website
 # Default author for posts will be QC-FEM
