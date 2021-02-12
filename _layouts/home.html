@@ -14,6 +14,16 @@ layout: default
     <div class="thumbnail-col-wrapper">
       {%- for post in site.categories.CrashCourse limit:3-%}
       <div class="thumbnail-col">
+        <!--
+        This is for post thumbnail thumbnail
+        -->
+        {%- if post.thumbnail -%}
+          <img src="{{post.thumbnail | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+        {%- else -%}
+          {%- if site.defthumbnail-CrashCourse -%}
+            <img src="{{site.defthumbnail-CrashCourse | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+          {%- endif -%}
+        {%- endif -%}
         <li>
           {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
           <span class="post-meta">{{ post.date | date: date_format }}</span>
@@ -31,10 +41,23 @@ layout: default
     </div>
     <p><a class="page-link" href="{{ site.baseurl }}{% link CrashCourse/index.markdown %}">Posts Similares Aquí</a></p>
 
+    <!--
+    Thumbnail menu for Projects
+    -->
     <h2 class="post-list-heading">{{ page.list_title | default: "Proyectos y artículos" }}</h2>
     <div class="thumbnail-col-wrapper">
       {%- for post in site.categories.Projects limit:3-%}
       <div class="thumbnail-col">
+        <!--
+        This is for post thumbnail thumbnail
+        -->
+        {%- if post.thumbnail -%}
+          <img src="{{post.thumbnail | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+        {%- else -%}
+          {%- if site.defthumbnail-Projects -%}
+            <img src="{{site.defthumbnail-Projects | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+          {%- endif -%}
+        {%- endif -%}
         <li>
           {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
           <span class="post-meta">{{ post.date | date: date_format }}</span>
