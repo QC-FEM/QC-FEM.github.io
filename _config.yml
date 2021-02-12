@@ -36,11 +36,11 @@ author: QC-FEM
 # Add a copyright symbol
 copyright: "QC-FEM"
 # Logo-title path
-title-logo: /images/website-title.png
+title-logo: /assets/images/website-title.png
 # Default thmb CrashCourse
-defthumbnail-CrashCourse: /images/defthumb_CrashCourse.png
+defthumbnail-CrashCourse: /assets/images/defthumb_CrashCourse.png
 # Default thmb Projects
-defthumbnail-Projects: /images/defthumb_Projects.png
+defthumbnail-Projects: /assets/images/defthumb_Projects.png
 
 # Build settings
 # Removed minima theme since it is desirable to use a regular theme
