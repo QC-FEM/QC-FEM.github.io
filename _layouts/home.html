@@ -11,48 +11,29 @@ layout: default
 
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Tutoriales y cursos" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      {%- if post.category=="CrashCourse"-%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        <!--{%- if site.show_excerpts -%}-->
-          {{ post.excerpt }}
-        <!--{%- endif -%}-->
-      </li>
-      {%- endif -%}
-      {%- endfor -%}
-    </ul>
-
-    <h2 class="post-list-heading">{{ page.list_title | default: "Proyectos y artículos especializados" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      {%- if post.category=="Projects"-%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        <!--{%- if site.show_excerpts -%}-->
-          {{ post.excerpt }}
-        <!--{%- endif -%}-->
-      </li>
-      {%- endif -%}
-      {%- endfor -%}
-    </ul>
-
-    <h2 class="post-list-heading">{{ page.list_title | default: "Demo Thumbnails" }}</h2>
     <div class="thumbnail-col-wrapper">
       {%- for post in site.categories.CrashCourse limit:3-%}
+      <div class="thumbnail-col">
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+          </h3>
+          <!--{%- if site.show_excerpts -%}-->
+            {{ post.excerpt }}
+          <!--{%- endif -%}-->
+        </li>
+      </div>
+      {%- endfor -%}
+    </div>
+    <p><a class="page-link" href="{{ site.baseurl }}{% link CrashCourse/index.markdown %}">Posts Similares Aquí</a></p>
+
+    <h2 class="post-list-heading">{{ page.list_title | default: "Proyectos y artículos" }}</h2>
+    <div class="thumbnail-col-wrapper">
+      {%- for post in site.categories.Projects limit:3-%}
       <div class="thumbnail-col">
         <li>
           {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
@@ -69,6 +50,7 @@ layout: default
       </div>
       {%- endfor -%}
     </div>
+    <p><a class="page-link" href="{{ site.baseurl }}{% link Projects/index.markdown %}">Posts Similares Aquí</a></p>
 
     <p class="rss-subscribe">subscríbete <a href="{{ "/feed.xml" | relative_url }}">vía RSS</a></p>
   {%- endif -%}

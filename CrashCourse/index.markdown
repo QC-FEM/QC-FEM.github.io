@@ -5,5 +5,6 @@
 layout: home-CrashCourse
 title: "Crash Course"
 category: CrashCourse
-list_title: Lecciones
+list_title: "Lecciones"
+in_menubar: true
 ---

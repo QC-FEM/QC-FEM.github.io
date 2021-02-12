@@ -5,4 +5,6 @@
 layout: home-Projects
 title: "Proyectos"
 category: Projects
+list_title: "Artículos"
+in_menubar: true
 ---
