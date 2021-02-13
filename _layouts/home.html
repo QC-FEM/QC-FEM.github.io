@@ -3,6 +3,18 @@ layout: default
 ---
 
 <div class="home">
+  {%- if page.banner -%}
+  <div class="banner">
+    <img src="{{post.banner | relative_url}}" alt="{{site.title | escape}}" width=auto height=auto></img>
+  </div>
+  {%- else -%}
+  {%- if site.defbanner -%}
+  <div class="banner">
+    <img src="{{site.defbanner | relative_url}}" alt="{{site.title | escape}}"></img>
+  </div>
+  {%- endif -%}
+  {%- endif -%}
+
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}

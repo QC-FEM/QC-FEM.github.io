@@ -41,6 +41,8 @@ title-logo: /assets/images/website-title.png
 defthumbnail-CrashCourse: /assets/images/defthumb_CrashCourse.png
 # Default thmb Projects
 defthumbnail-Projects: /assets/images/defthumb_Projects.png
+# Default banner:
+defbanner: /assets/images/defbanner.png
 
 # Build settings
 # Removed minima theme since it is desirable to use a regular theme

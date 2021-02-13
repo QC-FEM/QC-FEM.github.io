@@ -212,6 +212,19 @@
 }
 
 /**
+* Banner resize
+*/
+
+.banner{
+  float: left;
+  margin-bottom: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+  width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+  width:         calc(100% - (#{$spacing-unit} / 2));
+  height:         calc(25% - (#{$spacing-unit} / 2)); 
+}
+
+/**
  * Page content
  */
 .page-content {
