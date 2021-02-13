@@ -10,11 +10,11 @@ A comienzos del año 2021, dos estudiantes de la **Universidad Nacional de Colom
 <div class="col-wrapper">
   <div class="mycol col2">
     <h2>Misión</h2>
-    <p>Colocamos la misión de QC-FEM</p>
+    <p>Consolidar un grupo de investigación que expanda la frontera del conocimiento en Computación cuántica y que haga crecer a la comunidad de cuantum computing en Colombia, principalmente, e Hispanoamérica.</p>
   </div>
   <div class="mycol col2">
     <h2>Visión</h2>
-    <p>Colocamos la visión de QC-FEM</p>
+    <p>Se proyecta que el grupo este certificado en Colciencias y participe activamente en el estudio, desarrollo y divilgación de algoritmos cuánticos con aplicacion interdisciplinar.</p>
   </div>
 </div>
 
@@ -23,11 +23,19 @@ A comienzos del año 2021, dos estudiantes de la **Universidad Nacional de Colom
 
 <div class="col-wrapper">
   <div class="mycol col2">
-    <p text-align="center"><b>Diego Alejandro Herrera R.</b></p>
-    <p>Estudiante de pregrado de la UNAL. Apasionado por la computación cuántica, la programación y la electrónica. Interesado en simulación de sistemas cuánticos y Química Cuántica.</p>
+    <p align="center">
+      <img src="/assets/images/DiegoHerrera.png" alt="Diego Herrera" width="300" height="300">
+      <b>Diego Alejandro Herrera R.</b>
+    </p>
+    <p align="center">Estudiante de pregrado en física de la UNAL. Apasionado por la computación cuántica, la programación y la electrónica. Interesado en simulación de sistemas cuánticos y Química Cuántica.</p>
+    <b>Github:</b> <a href="https://github.com/DiegoHerrera262">@DiegoHerrera262</a>
   </div>
   <div class="mycol col2">
-    <p text-align="center"><b>Cristian Andrey Galvis F.</b></p>
-    <p>Estudiante de posgrado de la UNAL. Interesado en los campo de mediciones indirectas y códigos corrección de errores.</p>
+    <p align="center">
+      <img src="/assets/images/CristianGalvis.png" alt="Cristian Galvis" width="300" height="300">
+      <b>Cristian Andrey Galvis F.</b>
+    </p>
+    <p align="center">Estudiante de posgrado en física de la UNAL. Apasionado por la computación cuántica y la física teórica. Interesado en los campo de mediciones indirectas y códigos corrección de errores.</p>
+    <b>Github:</b> <a hfer="https://github.com/cagalvisf">@cagalvisf</a>
   </div>
 </div>
