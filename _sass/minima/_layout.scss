@@ -211,6 +211,81 @@
   color: $dark-blue;
 }
 
+/*
+* Nice Bootstrap-like columns
+*/
+
+.col-wrapper {
+  margin-left: -$spacing-unit / 2;
+  @extend %clearfix;
+}
+
+.mycol {
+  float: left;
+  margin-bottom: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+}
+
+/*
+* Two columns in a row
+*/
+
+.col2 {
+  width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+  width:         calc(50% - (#{$spacing-unit} / 2));
+}
+
+/*
+* Three columns in a row
+*/
+
+.col3 {
+  width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+  width:         calc(33% - (#{$spacing-unit} / 2));
+}
+
+/*
+* Four columns in a row
+*/
+
+.col4 {
+  width: -webkit-calc(25% - (#{$spacing-unit} / 2));
+  width:         calc(25% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+  .col2,
+  .col4 {
+    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+    width:         calc(50% - (#{$spacing-unit} / 2));
+  }
+
+  .col3 {
+    width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+    width:         calc(33% - (#{$spacing-unit} / 2));
+  }
+}
+
+@include media-query($on-palm) {
+  .col2 {
+    float: none;
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
+
+  .col3 {
+    float: none;
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
+
+  .col4 {
+    float: none;
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
 /**
 * Banner resize
 */
@@ -221,7 +296,7 @@
   padding-left: $spacing-unit / 2;
   width: -webkit-calc(100% - (#{$spacing-unit} / 2));
   width:         calc(100% - (#{$spacing-unit} / 2));
-  height:         calc(25% - (#{$spacing-unit} / 2)); 
+  height:         calc(25% - (#{$spacing-unit} / 2));
 }
 
 /**
