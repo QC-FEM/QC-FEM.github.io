@@ -43,6 +43,11 @@ defthumbnail-CrashCourse: /assets/images/defthumb_CrashCourse.png
 defthumbnail-Projects: /assets/images/defthumb_Projects.png
 # Default banner:
 defbanner: /assets/images/defbanner.png
+# Default projects banner
+defbanner-Projects: /assets/images/defbanner_Projects.png
+# Default Crash Course banner
+defbanner-CrashCourse: /assets/images/defbanner_CrashCourse.png
+
 
 # Build settings
 # Removed minima theme since it is desirable to use a regular theme

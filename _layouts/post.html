@@ -3,6 +3,28 @@ layout: default
 ---
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
+  {%- if page.banner -%}
+  <div class="banner">
+    <img src="{{post.banner | relative_url}}" alt="{{site.title | escape}}" width=auto height=auto></img>
+  </div>
+  {%- else -%}
+  {%- if site.defbanner-Projects and  page.category=="Projects"-%}
+  <div class="banner">
+    <img src="{{site.defbanner-Projects | relative_url}}" alt="{{site.title | escape}}"></img>
+  </div>
+  {%- else -%}
+  {%- if site.defbanner-CrashCourse and  page.category=="CrashCourse"-%}
+  <div class="banner">
+    <img src="{{site.defbanner-CrashCourse | relative_url}}" alt="{{site.title | escape}}"></img>
+  </div>
+  {%- else -%}
+  <div class="banner">
+    <img src="{{site.defbanner | relative_url}}" alt="{{site.title | escape}}"></img>
+  </div>
+  {%- endif -%}
+  {%- endif -%}
+  {%- endif -%}
+
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
