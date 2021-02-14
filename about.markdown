@@ -25,6 +25,8 @@ A comienzos del año 2021, dos estudiantes de la **Universidad Nacional de Colom
   <div class="mycol col2">
     <p align="center">
       <img src="/assets/images/DiegoHerrera.png" alt="Diego Herrera" width="300" height="300">
+    </p>
+    <p align="center">
       <b>Diego Alejandro Herrera R.</b>
     </p>
     <p align="center">Estudiante de pregrado en física de la UNAL. Apasionado por la computación cuántica, la programación y la electrónica. Interesado en simulación de sistemas cuánticos y Química Cuántica.</p>
@@ -33,6 +35,8 @@ A comienzos del año 2021, dos estudiantes de la **Universidad Nacional de Colom
   <div class="mycol col2">
     <p align="center">
       <img src="/assets/images/CristianGalvis.png" alt="Cristian Galvis" width="300" height="300">
+    </p>
+    <p align="center">
       <b>Cristian Andrey Galvis F.</b>
     </p>
     <p align="center">Estudiante de posgrado en física de la UNAL. Apasionado por la computación cuántica y la física teórica. Interesado en los campo de mediciones indirectas y códigos corrección de errores.</p>

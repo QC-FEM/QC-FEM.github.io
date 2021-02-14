@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Lección 1: Computación reversible"
-date: 2021/02/14 13:00:00
+date: 2021-02-14 18:48:51
 category: CrashCourse
 ---
-
+ 
 Primero, realizamos los imports necesarios.
 
 
@@ -25,17 +25,17 @@ Definimos el registro cuántico donde se va a realizar el procesamiento de la ca
 
 
 ```python
-# Guardamos la longitud de la cadena por facilidad
+## Guardamos la longitud de la cadena por facilidad
 nbits = len(cadena)
-# Registro para procesamiento
+## Registro para procesamiento
 cadena_procesada = QuantumRegister(nbits,name='ce')
-# Registro de ancila
+## Registro de ancila
 ancila = QuantumRegister(nbits//2-1,name='anc')
-# Registro de salida
+## Registro de salida
 es_palind = QuantumRegister(1,name= 'p')
-# Registro para la medición
+## Registro para la medición
 mido_palind = ClassicalRegister(1,name='pm')
-# Registro para procesamiento
+## Registro para procesamiento
 cadena_medida = ClassicalRegister(nbits,name='cm')
 ```
 
@@ -44,7 +44,7 @@ Creamos el circuito para realizar el cómputo
 
 ```python
 qc_palindromo = QuantumCircuit(cadena_procesada,ancila,es_palind,mido_palind,cadena_medida)
-# Dibujamos el circuito
+## Dibujamos el circuito
 qc_palindromo.draw(output='mpl')
 ```
 
@@ -59,13 +59,13 @@ Recordemos que los bits se inicializan en el estado 0, de modo que hay que proce
 
 
 ```python
-# Aplicamos una compuerta NOT de acuerdo con la info de cadena
+## Aplicamos una compuerta NOT de acuerdo con la info de cadena
 for idx in range(nbits):
     if cadena[idx] == '1':
         qc_palindromo.x(cadena_procesada[idx])
-# Colocamos una barrera por claridad
+## Colocamos una barrera por claridad
 qc_palindromo.barrier()
-# Dibujamos el circuito
+## Dibujamos el circuito
 qc_palindromo.draw(output= 'mpl')
 ```
 
@@ -80,12 +80,12 @@ Procedemos a comparar bits correspondientes usando el algoritmo que hemos discut
 
 
 ```python
-# Aplicamos una compuerta CNOT entre i-ésimo bit y (nbits-1-i)-ésimo bit hasta i = nbits//2
+## Aplicamos una compuerta CNOT entre i-ésimo bit y (nbits-1-i)-ésimo bit hasta i = nbits//2
 for idx in range(nbits//2):
     qc_palindromo.cx(cadena_procesada[idx],cadena_procesada[nbits-idx-1])
-# Colocamos una barrera por claridad
+## Colocamos una barrera por claridad
 qc_palindromo.barrier()
-# Dibujamos el circuito
+## Dibujamos el circuito
 qc_palindromo.draw(output= 'mpl')
 ```
 
@@ -100,15 +100,15 @@ Recordemos que si dos bits tienen el mismo valor, la compuerta CNOT cambia al bi
 
 
 ```python
-# Determinamos si los últimos nbits//2 bits son todos 0
-# Para ello, simulamos NAND utilizando toffoli y NOT
-# Primero aplicamos las NOT
+## Determinamos si los últimos nbits//2 bits son todos 0
+## Para ello, simulamos NAND utilizando toffoli y NOT
+## Primero aplicamos las NOT
 offset = nbits//2 + (nbits&1)
 for idx in range(offset,nbits):
     qc_palindromo.x(cadena_procesada[idx])
-# Colocamos una barrera por claridad
+## Colocamos una barrera por claridad
 qc_palindromo.barrier()
-# Luego las toffoli, utilizando los qbits de ancila
+## Luego las toffoli, utilizando los qbits de ancila
 qc_palindromo.ccx(cadena_procesada[offset],cadena_procesada[offset+1],ancila[0])
 anc_c = 0
 anc_o = 1
@@ -119,9 +119,9 @@ for idx in range(offset+2,nbits):
         anc_o = anc_o + 1
     except:
         continue
-# Colocamos una barrera por claridad
+## Colocamos una barrera por claridad
 qc_palindromo.barrier()
-# Dibujamos el circuito
+## Dibujamos el circuito
 qc_palindromo.draw(output= 'mpl')
 ```
 
@@ -137,9 +137,9 @@ La clave de la computación reversible es **deshacer el cómputo** por ello nece
 
 ```python
 qc_palindromo.cx(ancila[-1],es_palind[0])
-# Añadimos una barrera por claridad
+## Añadimos una barrera por claridad
 qc_palindromo.barrier()
-# Dibujamos el circuito
+## Dibujamos el circuito
 qc_palindromo.draw(output='mpl')
 ```
 
@@ -154,7 +154,7 @@ Ahora procedemos a realizar el des-cómputo, revirtiendo todos los pasos hasta l
 
 
 ```python
-# Desacemos el NAND en cadena
+## Desacemos el NAND en cadena
 offset = nbits//2 + (nbits&1)
 anc_c = nbits//2-3
 anc_o = nbits//2-2
@@ -165,16 +165,16 @@ for idx in reversed(range(offset+2,nbits)):
         anc_o = anc_o - 1
     except:
         continue
-# Luego las toffoli, utilizando los qbits de ancila
+## Luego las toffoli, utilizando los qbits de ancila
 qc_palindromo.ccx(cadena_procesada[offset],cadena_procesada[offset+1],ancila[0])
-# Colocamos una barrera por claridad
+## Colocamos una barrera por claridad
 qc_palindromo.barrier()
-# Finalmente, las NOT
+## Finalmente, las NOT
 for idx in range(offset,nbits):
     qc_palindromo.x(cadena_procesada[idx])
-# Colocamos una barrera por claridad
+## Colocamos una barrera por claridad
 qc_palindromo.barrier()
-# Dibujamos el circuito
+## Dibujamos el circuito
 qc_palindromo.draw(output= 'mpl')
 ```
 
@@ -189,12 +189,12 @@ Finalmente, deshacemos el cómputo de los bits de comparación
 
 
 ```python
-# Aplicamos una compuerta CNOT entre i-ésimo bit y (nbits-1-i)-ésimo bit hasta i = nbits//2
+## Aplicamos una compuerta CNOT entre i-ésimo bit y (nbits-1-i)-ésimo bit hasta i = nbits//2
 for idx in reversed(range(nbits//2)):
     qc_palindromo.cx(cadena_procesada[idx],cadena_procesada[nbits-idx-1])
-# Colocamos una barrera por claridad
+## Colocamos una barrera por claridad
 qc_palindromo.barrier()
-# Dibujamos el circuito
+## Dibujamos el circuito
 qc_palindromo.draw(output= 'mpl')
 ```
 
@@ -211,7 +211,7 @@ Resta medir la cadena procesada en el registro de cadena medida, y el indicador 
 ```python
 qc_palindromo.measure(cadena_procesada,cadena_medida)
 qc_palindromo.measure(es_palind,mido_palind)
-# Dibujamos el circuito
+## Dibujamos el circuito
 qc_palindromo.draw(output='mpl')
 ```
 
