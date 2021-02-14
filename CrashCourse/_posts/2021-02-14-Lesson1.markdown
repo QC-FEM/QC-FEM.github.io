@@ -1,0 +1,244 @@
+---
+layout: post
+title: "Lección 1: Computación reversible"
+date: 2021/02/14 13:00:00
+category: CrashCourse
+---
+
+Primero, realizamos los imports necesarios.
+
+
+```python
+from qiskit import QuantumCircuit, execute, Aer
+from qiskit import QuantumRegister, ClassicalRegister
+from qiskit.visualization import plot_histogram
+```
+
+Definimos la cadena que queremos evaluar
+
+
+```python
+cadena = '1001'
+```
+
+Definimos el registro cuántico donde se va a realizar el procesamiento de la cadena, así como el registro clásico donde se va a almacenar el resultado del cómputo. Es importante recordar que los cómputos reversibles de AND u OR necesitan de **bits de ancila**. Este registro también debe crearse
+
+
+```python
+# Guardamos la longitud de la cadena por facilidad
+nbits = len(cadena)
+# Registro para procesamiento
+cadena_procesada = QuantumRegister(nbits,name='ce')
+# Registro de ancila
+ancila = QuantumRegister(nbits//2-1,name='anc')
+# Registro de salida
+es_palind = QuantumRegister(1,name= 'p')
+# Registro para la medición
+mido_palind = ClassicalRegister(1,name='pm')
+# Registro para procesamiento
+cadena_medida = ClassicalRegister(nbits,name='cm')
+```
+
+Creamos el circuito para realizar el cómputo
+
+
+```python
+qc_palindromo = QuantumCircuit(cadena_procesada,ancila,es_palind,mido_palind,cadena_medida)
+# Dibujamos el circuito
+qc_palindromo.draw(output='mpl')
+```
+
+
+
+
+![png](/CrashCourse/assets/images/Lec_1_files/Lec_1_7_0.png)
+
+
+
+Recordemos que los bits se inicializan en el estado 0, de modo que hay que procesarlos antes de iniciar el computo para almacenar la cadena a evaluar.
+
+
+```python
+# Aplicamos una compuerta NOT de acuerdo con la info de cadena
+for idx in range(nbits):
+    if cadena[idx] == '1':
+        qc_palindromo.x(cadena_procesada[idx])
+# Colocamos una barrera por claridad
+qc_palindromo.barrier()
+# Dibujamos el circuito
+qc_palindromo.draw(output= 'mpl')
+```
+
+
+
+
+![png](/CrashCourse/assets/images/Lec_1_files/Lec_1_9_0.png)
+
+
+
+Procedemos a comparar bits correspondientes usando el algoritmo que hemos discutido. Vamos a determinar si los bits correspondientes son iguales. Esta información va a quedar guardada en los últimos ```nbits//2``` del resgitro de la cadena procesada.
+
+
+```python
+# Aplicamos una compuerta CNOT entre i-ésimo bit y (nbits-1-i)-ésimo bit hasta i = nbits//2
+for idx in range(nbits//2):
+    qc_palindromo.cx(cadena_procesada[idx],cadena_procesada[nbits-idx-1])
+# Colocamos una barrera por claridad
+qc_palindromo.barrier()
+# Dibujamos el circuito
+qc_palindromo.draw(output= 'mpl')
+```
+
+
+
+
+![png](/CrashCourse/assets/images/Lec_1_files/Lec_1_11_0.png)
+
+
+
+Recordemos que si dos bits tienen el mismo valor, la compuerta CNOT cambia al bit objetivo al estado 0. Para evaluar si todos los ```nbits//2``` de la segunda mitad del registro de entrada son cero, vamos a aplicar compuertas Toffoli en cascada para recrear la compuerta NAND, como vimos anteriormente, para ello utilizaremos los bits de ancila.
+
+
+```python
+# Determinamos si los últimos nbits//2 bits son todos 0
+# Para ello, simulamos NAND utilizando toffoli y NOT
+# Primero aplicamos las NOT
+offset = nbits//2 + (nbits&1)
+for idx in range(offset,nbits):
+    qc_palindromo.x(cadena_procesada[idx])
+# Colocamos una barrera por claridad
+qc_palindromo.barrier()
+# Luego las toffoli, utilizando los qbits de ancila
+qc_palindromo.ccx(cadena_procesada[offset],cadena_procesada[offset+1],ancila[0])
+anc_c = 0
+anc_o = 1
+for idx in range(offset+2,nbits):
+    try:
+        qc_palindromo.ccx(cadena_procesada[idx],ancila[anc_c],ancila[anc_o])
+        anc_c = anc_c + 1
+        anc_o = anc_o + 1
+    except:
+        continue
+# Colocamos una barrera por claridad
+qc_palindromo.barrier()
+# Dibujamos el circuito
+qc_palindromo.draw(output= 'mpl')
+```
+
+
+
+
+![png](/CrashCourse/assets/images/Lec_1_files/Lec_1_13_0.png)
+
+
+
+La clave de la computación reversible es **deshacer el cómputo** por ello necesitamos un registro adicional para copiar el resultado del cómputo que luego vamos a medir. El resultado queda guardado en el último bit del registro de ancila.
+
+
+```python
+qc_palindromo.cx(ancila[-1],es_palind[0])
+# Añadimos una barrera por claridad
+qc_palindromo.barrier()
+# Dibujamos el circuito
+qc_palindromo.draw(output='mpl')
+```
+
+
+
+
+![png](/CrashCourse/assets/images/Lec_1_files/Lec_1_15_0.png)
+
+
+
+Ahora procedemos a realizar el des-cómputo, revirtiendo todos los pasos hasta la inicialización de la cadena de entrada
+
+
+```python
+# Desacemos el NAND en cadena
+offset = nbits//2 + (nbits&1)
+anc_c = nbits//2-3
+anc_o = nbits//2-2
+for idx in reversed(range(offset+2,nbits)):
+    try:
+        qc_palindromo.ccx(cadena_procesada[idx],ancila[anc_c],ancila[anc_o])
+        anc_c = anc_c - 1
+        anc_o = anc_o - 1
+    except:
+        continue
+# Luego las toffoli, utilizando los qbits de ancila
+qc_palindromo.ccx(cadena_procesada[offset],cadena_procesada[offset+1],ancila[0])
+# Colocamos una barrera por claridad
+qc_palindromo.barrier()
+# Finalmente, las NOT
+for idx in range(offset,nbits):
+    qc_palindromo.x(cadena_procesada[idx])
+# Colocamos una barrera por claridad
+qc_palindromo.barrier()
+# Dibujamos el circuito
+qc_palindromo.draw(output= 'mpl')
+```
+
+
+
+
+![png](/CrashCourse/assets/images/Lec_1_files/Lec_1_17_0.png)
+
+
+
+Finalmente, deshacemos el cómputo de los bits de comparación
+
+
+```python
+# Aplicamos una compuerta CNOT entre i-ésimo bit y (nbits-1-i)-ésimo bit hasta i = nbits//2
+for idx in reversed(range(nbits//2)):
+    qc_palindromo.cx(cadena_procesada[idx],cadena_procesada[nbits-idx-1])
+# Colocamos una barrera por claridad
+qc_palindromo.barrier()
+# Dibujamos el circuito
+qc_palindromo.draw(output= 'mpl')
+```
+
+
+
+
+![png](/CrashCourse/assets/images/Lec_1_files/Lec_1_19_0.png)
+
+
+
+Resta medir la cadena procesada en el registro de cadena medida, y el indicador de si esta es palíndroma, en el registro de medición apropiado
+
+
+```python
+qc_palindromo.measure(cadena_procesada,cadena_medida)
+qc_palindromo.measure(es_palind,mido_palind)
+# Dibujamos el circuito
+qc_palindromo.draw(output='mpl')
+```
+
+
+
+
+![png](/CrashCourse/assets/images/Lec_1_files/Lec_1_21_0.png)
+
+
+
+Ahora simulamos la cadena utilizando el paquete *Aer* de qiskit
+
+
+```python
+backend = Aer.get_backend('qasm_simulator')
+counts = execute(qc_palindromo,backend).result().get_counts()
+plot_histogram(counts)
+```
+
+
+
+
+![png](/CrashCourse/assets/images/Lec_1_files/Lec_1_23_0.png)
+
+
+
+Tarea para los chicos:
+
+1. Si corren el notebook con una cadena de 3 bits, el algoritmo no funciona. ¿Por qué?
+1. Pueden hacer un circuito que funcione para una cadena de 3 bits.
