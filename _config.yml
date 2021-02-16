@@ -47,6 +47,8 @@ defbanner: /assets/images/defbanner.png
 defbanner-Projects: /assets/images/defbanner_Projects.png
 # Default Crash Course banner
 defbanner-CrashCourse: /assets/images/defbanner_CrashCourse.png
+# Site analytics from Google analytics
+google_analytics: G-FJW5V63B54
 
 
 # Build settings

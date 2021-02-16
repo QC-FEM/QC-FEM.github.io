@@ -312,7 +312,8 @@ La compuerta CNOT nos permite copiar el valor del bit $q_0$ en el bit $q_1$, sie
 
 Esta es una compuerta cuya acción se resume como una compuerta CNOT controlada. Por ello también suele denotarse como CCNOT. Su acción se resume por
 
-\[\text{CCNOT}(q_0q_1q_2) = \begin{cases}q_0q_1q_2 & q_0 = 0 \\ q_0, \text{CNOT} (q_1,q_2) & q_0 = 1\end{cases}\]
+\[\text{CCNOT}(q_0q_1q_2) = q_0q_1q_2 \text{ si } q_0 = 0 \]
+\[\text{CCNOT}(q_0q_1q_2) = q_0, \text{CNOT} (q_1,q_2) \text{ si } q_0 = 1\]
 
 **IMPORTANTE:** Se deja como ejercicio al lector demostrar que la acción de la compuerta Toffoli puede resumirse por $\text{CCNOT}(q_0q_1q_2) = q'_0q'_1q'_2$ con $q'_0 = q_0$, $q'_1=q_1$ y
 

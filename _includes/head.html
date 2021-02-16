@@ -3,6 +3,9 @@
   Changed default font to courier
   <link rel="preconnect" href="https://fonts.gstatic.com">
   -->
+  {% if jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
   {% include _mathjax_support.html %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap">
   <meta charset="utf-8">

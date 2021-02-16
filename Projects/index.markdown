@@ -8,3 +8,10 @@ category: Projects
 list_title: "Artículos"
 in_menubar: true
 ---
+
+Aquí se encuentra la lista de proyectos y publicaciones especializadas realizadas desde el grupo QC-FEM. Con ellas esperamos motivar la investigación fundamental en computación cuántica en Hispanoamérica. Tratamos temas conocimientos
+
+1. Procesadores basados en dispositivos superconductores.
+1. Química Cuántica.
+1. Óptica Cuántica.
+1. Quantum Machine Learning.
