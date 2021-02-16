@@ -30,9 +30,21 @@
 
       <div class="footer-col footer-col-3">
         <p>{{- site.description | escape -}}</p>
-      </div>
-    </div>
 
+      </div>
+
+    </div>
+    <div class="newsletter-container">
+      <form class="newsletter-form" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=Qc-femOficial', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+        <p>Gracias por visitarnos! Te invitamos a suscribirte con tu e-mail: </p>
+        <p><input type="text" class="newsletter-email" name="email" placeholder="usuario@mail.com"/> <input type="submit" class="newsletter-submit" value="Suscríbete" /></p>
+        <input type="hidden" value="Qc-femOficial" name="uri"/>
+        <input type="hidden" name="loc" value="en_US"/>
+        <!--
+        <p>Delivered by <a href="https://feedburner.google.com" target="_blank">FeedBurner</a></p>
+        -->
+      </form>
+    </div>
   </div>
 
 </footer>

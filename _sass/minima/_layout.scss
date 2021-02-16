@@ -299,6 +299,42 @@
   height:         calc(25% - (#{$spacing-unit} / 2));
 }
 
+/*
+* Style for newletter subscription
+*/
+
+.newsletter-container{
+  background: $grey-color-light;
+  align-self: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter-form {
+  text-align: center;;
+}
+
+.newsletter-email,
+.newsletter-submit {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 0;
+  align-self: center;
+}
+
+.newsletter-email {
+  font-family: $base-font-family;
+  font-size: $small-font-size;
+  text-align: center;
+}
+
+.newsletter-submit {
+  font-family: $base-font-family;
+  font-size: $small-font-size;
+  text-align: center;
+}
+
 /**
  * Page content
  */
