@@ -26,7 +26,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://qc-fem.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  QC-FEM
 instagram_username: QC-FEM
-youtube_username: QC-FEM
+youtube_username: qc.fem
 
 # More fields for minima to custom website
 # Default author for posts will be QC-FEM
