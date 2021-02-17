@@ -14,7 +14,7 @@ A comienzos del año 2021, dos estudiantes de la **Universidad Nacional de Colom
   </div>
   <div class="mycol col2">
     <h2>Visión</h2>
-    <p>Se proyecta que el grupo este certificado en Colciencias y participe activamente en el estudio, desarrollo y divilgación de algoritmos cuánticos con aplicacion interdisciplinar.</p>
+    <p>Se proyecta que el grupo este certificado en Colciencias y participe activamente en el estudio, desarrollo y divulgación de algoritmos cuánticos con aplicacion interdisciplinar.</p>
   </div>
 </div>
 
