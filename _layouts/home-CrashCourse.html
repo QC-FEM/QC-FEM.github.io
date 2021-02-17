@@ -21,31 +21,232 @@ layout: default
 
   {{ content }}
 
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Publicaciones" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      {%- if post.category=="CrashCourse"-%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
+  {%- if site.categories.CrashCourse.size > 0 -%}
+
+    <h2 class="post-list-heading">Lección 1: Fundamentos de computación</h2>
+    <div class="col-wrapper">
+      {%- for post in site.categories.CrashCourse -%}
+      {%- if post.lesson_num==1-%}
+      <div class="mycol col3">
+        <!--
+        This is for post thumbnail thumbnail
+        -->
+        {%- if post.thumbnail -%}
+          <img src="{{post.thumbnail | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+        {%- else -%}
+          {%- if site.defthumbnail-CrashCourse -%}
+            <img src="{{site.defthumbnail-CrashCourse | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+          {%- endif -%}
+        {%- endif -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
-          </a>
-        </h3>
-        <!--{%- if site.show_excerpts -%}-->
-          {{ post.excerpt }}
-        <!--{%- endif -%}-->
-      </li>
+            </a>
+          </h3>
+          <!--{%- if site.show_excerpts -%}-->
+            {{ post.excerpt }}
+          <!--{%- endif -%}-->
+        </li>
+      </div>
       {%- endif -%}
       {%- endfor -%}
-    </ul>
+    </div>
 
-    <!--
-    Save for later the RSS Feed
-    <p class="rss-subscribe">subscríbete <a href="{{ "/feed.xml" | relative_url }}">vía RSS</a></p>
-    -->
+    <h2 class="post-list-heading">Lección 2: Mecánica cuántica y computación</h2>
+    <div class="col-wrapper">
+      {%- for post in site.categories.CrashCourse -%}
+      {%- if post.lesson_num==2-%}
+      <div class="mycol col3">
+        <!--
+        This is for post thumbnail thumbnail
+        -->
+        {%- if post.thumbnail -%}
+          <img src="{{post.thumbnail | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+        {%- else -%}
+          {%- if site.defthumbnail-CrashCourse -%}
+            <img src="{{site.defthumbnail-CrashCourse | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+          {%- endif -%}
+        {%- endif -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+          </h3>
+          <!--{%- if site.show_excerpts -%}-->
+            {{ post.excerpt }}
+          <!--{%- endif -%}-->
+        </li>
+      </div>
+      {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <h2 class="post-list-heading">Lección 3: Compuertas cuánticas</h2>
+    <div class="col-wrapper">
+      {%- for post in site.categories.CrashCourse -%}
+      {%- if post.lesson_num==3-%}
+      <div class="mycol col3">
+        <!--
+        This is for post thumbnail thumbnail
+        -->
+        {%- if post.thumbnail -%}
+          <img src="{{post.thumbnail | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+        {%- else -%}
+          {%- if site.defthumbnail-CrashCourse -%}
+            <img src="{{site.defthumbnail-CrashCourse | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+          {%- endif -%}
+        {%- endif -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+          </h3>
+          <!--{%- if site.show_excerpts -%}-->
+            {{ post.excerpt }}
+          <!--{%- endif -%}-->
+        </li>
+      </div>
+      {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <h2 class="post-list-heading">Lección 4: Diseño de circuitos</h2>
+    <div class="col-wrapper">
+      {%- for post in site.categories.CrashCourse -%}
+      {%- if post.lesson_num==4-%}
+      <div class="mycol col3">
+        <!--
+        This is for post thumbnail thumbnail
+        -->
+        {%- if post.thumbnail -%}
+          <img src="{{post.thumbnail | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+        {%- else -%}
+          {%- if site.defthumbnail-CrashCourse -%}
+            <img src="{{site.defthumbnail-CrashCourse | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+          {%- endif -%}
+        {%- endif -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+          </h3>
+          <!--{%- if site.show_excerpts -%}-->
+            {{ post.excerpt }}
+          <!--{%- endif -%}-->
+        </li>
+      </div>
+      {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <h2 class="post-list-heading">Lección 5: Protocolos cuánticos</h2>
+    <div class="col-wrapper">
+      {%- for post in site.categories.CrashCourse -%}
+      {%- if post.lesson_num==5-%}
+      <div class="mycol col3">
+        <!--
+        This is for post thumbnail thumbnail
+        -->
+        {%- if post.thumbnail -%}
+          <img src="{{post.thumbnail | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+        {%- else -%}
+          {%- if site.defthumbnail-CrashCourse -%}
+            <img src="{{site.defthumbnail-CrashCourse | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+          {%- endif -%}
+        {%- endif -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+          </h3>
+          <!--{%- if site.show_excerpts -%}-->
+            {{ post.excerpt }}
+          <!--{%- endif -%}-->
+        </li>
+      </div>
+      {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <h2 class="post-list-heading">Lección 6: Paralelismo cuántico</h2>
+    <div class="col-wrapper">
+      {%- for post in site.categories.CrashCourse -%}
+      {%- if post.lesson_num==6-%}
+      <div class="mycol col3">
+        <!--
+        This is for post thumbnail thumbnail
+        -->
+        {%- if post.thumbnail -%}
+          <img src="{{post.thumbnail | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+        {%- else -%}
+          {%- if site.defthumbnail-CrashCourse -%}
+            <img src="{{site.defthumbnail-CrashCourse | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+          {%- endif -%}
+        {%- endif -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+          </h3>
+          <!--{%- if site.show_excerpts -%}-->
+            {{ post.excerpt }}
+          <!--{%- endif -%}-->
+        </li>
+      </div>
+      {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <h2 class="post-list-heading">Lección 7: Estimación de fase</h2>
+    <div class="col-wrapper">
+      {%- for post in site.categories.CrashCourse -%}
+      {%- if post.lesson_num==7-%}
+      <div class="mycol col3">
+        <!--
+        This is for post thumbnail thumbnail
+        -->
+        {%- if post.thumbnail -%}
+          <img src="{{post.thumbnail | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+        {%- else -%}
+          {%- if site.defthumbnail-CrashCourse -%}
+            <img src="{{site.defthumbnail-CrashCourse | relative_url}}" alt="{{site.title | escape}}" width="200" height="200"></img>
+          {%- endif -%}
+        {%- endif -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+          </h3>
+          <!--{%- if site.show_excerpts -%}-->
+            {{ post.excerpt }}
+          <!--{%- endif -%}-->
+        </li>
+      </div>
+      {%- endif -%}
+      {%- endfor -%}
+    </div>
+
   {%- endif -%}
 
 </div>
