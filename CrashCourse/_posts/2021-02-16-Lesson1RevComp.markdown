@@ -3,6 +3,8 @@ layout: post
 title: "Lección 1: Computación reversible y modelo de circuitos"
 date: 2021-02-16 14:05:48
 category: CrashCourse
+author: "Diego Herrera"
+lesson_num: 1
 ---
 
 Antes de adentrarnos en las nociones fundamentales de computación cuántica, vamos a revisar las ideas fundamentales de las ciencias de la computación. En particular, discutiremos el *modelo de computación de circuitos clásico*, y enfatizaremos en la importancia de la *computación reversible*. Esta lección es eminentemente teórica, sin embargo, puede ser tratada interactivamente en nuestro entorno de ejecución en MyBinder.

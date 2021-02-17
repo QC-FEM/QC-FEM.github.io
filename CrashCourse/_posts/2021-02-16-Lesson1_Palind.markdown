@@ -3,6 +3,8 @@ layout: post
 title: "Ejemplo práctico 1: Cadenas Palíndromas"
 date: 2021-02-16 15:03:43
 category: CrashCourse
+author: "Diego Herrera"
+lesson_num: 1
 ---
 
 En esta sección aplicaremos las lecciones aprendidas sobre computación reversible por medio del paquete de programación *Qiskit* para Python, producido por IBM. Nos concentraremos en resolver un problema estándar de computación:
