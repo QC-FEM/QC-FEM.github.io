@@ -3,15 +3,9 @@
   Changed default font to courier
   <link rel="preconnect" href="https://fonts.gstatic.com">
   -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJW5V63B54"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-FJW5V63B54');
-  </script>
+  {% if jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
   {% include _mathjax_support.html %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap">
   <meta charset="utf-8">
