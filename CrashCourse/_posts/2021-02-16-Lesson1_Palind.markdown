@@ -4,6 +4,7 @@ title: "Ejemplo práctico 1: Cadenas Palíndromas"
 date: 2021-02-16 15:03:43
 category: CrashCourse
 author: "Diego Herrera"
+thumbnail: CrashCourse/assets/images/Lec_1_Palindromos_files/thumbnail.png
 lesson_num: 1
 ---
 

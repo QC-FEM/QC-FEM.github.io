@@ -4,6 +4,7 @@ title: "Lección 1: Computación reversible y modelo de circuitos"
 date: 2021-02-16 14:05:48
 category: CrashCourse
 author: "Diego Herrera"
+thumbnail: CrashCourse/assets/images/Lec_1_Teor_files/thumbnail.png
 lesson_num: 1
 ---
 
