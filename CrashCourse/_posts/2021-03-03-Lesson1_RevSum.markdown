@@ -65,7 +65,7 @@ Para poder representar un número entero de forma eficiente en un circuito lógi
 
 Seguiremos la misma convención que utilizamos para representar un número como cadena decimal, para representarlo como cadena binaria. De modo que podemos establecer la equivalencia
 
-\[10_{10} = 1010_{2}\]
+\[10_\{10\} = 1010_2\]
 
 Donde el subíndice denota la representación (binaria o decimal) que estamos utilizando. El proceso de sumar dos enteros es precisamente el descrito anteriormente. Sin embargo, debido a que trabajamos con un alfabeto más reducido, no es difícil establecer las reglas para sumar dos dígitos:
 
