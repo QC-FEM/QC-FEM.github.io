@@ -402,9 +402,9 @@ slider = interactive(GraficarPDF,omega=(10,30,2))
 display(slider)
 ```
 
-
-    interactive(children=(IntSlider(value=20, description='omega', max=30, min=10, step=2), Output()), _dom_classe…
-
+{:refdef: style="text-align: center;"}
+![png](/Projects/assets/images/TwoStateProblems_files/prob_dens.png)
+{:refdef}
 
 Al estudiar esta gráfica, observamos claramente un **ciclo de excitación-decaimiento**, con un periodo $T = \pi/\Omega_0$. La probabilidad de encontrar la partícula en el estado excitado tiene un valor máximo
 
