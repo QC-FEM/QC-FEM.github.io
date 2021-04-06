@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ejemplo práctico 2: Sumador de N bits"
+title: "Ejemplo práctico 1.2: Sumador de N bits"
 date: 2021-03-03 19:35:09
 author: Diego Herrera
 category: CrashCourse
